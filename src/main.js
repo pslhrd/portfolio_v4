@@ -35,7 +35,7 @@ function homeStart(){
 	.to('.projects span', {y:'0%', duration:1.1, ease:'power3.out', stagger:0.08}, "-=1.6")
 }
 
-// homeStart()
+homeStart()
 
 function openMenu() {
 
