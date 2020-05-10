@@ -1,0 +1,386 @@
+/* set the minimum value of the breakpoint type
+   and the number of columns associated to it: */
+/*
+Media queries helpers */
+/*
+Grid mixins */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+[class^=likid] {
+  margin: 0;
+  position: absolute;
+}
+[class^=likid] .line {
+  display: block;
+}
+[class^=likid] .line.right {
+  text-align: right;
+}
+[class^=likid] .line.center {
+  text-align: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  color: #181818;
+  margin: 0;
+  font-size: 14px;
+  line-height: 14px;
+  font-family: "Suisse", sans-serif;
+  width: 100vw;
+  overflow: hidden;
+}
+body ::selection {
+  color: #8B8B8B;
+}
+body a,
+body button.is-a {
+  text-decoration: none;
+  color: currentColor;
+  background: none;
+  border: none;
+  padding: 0;
+}
+body header {
+  font-size: 16px;
+  line-height: 16px;
+}
+body header .logo {
+  color: white;
+  z-index: 50;
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  overflow: hidden;
+  display: inline-block;
+  mix-blend-mode: difference;
+}
+body header .logo span {
+  display: block;
+}
+body header .links {
+  color: white;
+  text-align: right;
+  z-index: 50;
+  mix-blend-mode: difference;
+  top: 50px;
+  left: calc(100vw * 7 / 32 + 0px);
+  left: calc(100vw * 7 / 32 + 0px);
+  position: fixed;
+}
+body header .links span {
+  display: block;
+}
+body header .links a {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+}
+body header .links .menu-close {
+  display: none;
+  position: absolute;
+  top: 0;
+}
+body .menu-wrapper {
+  z-index: 35;
+  position: fixed;
+  width: 100vw;
+  height: 0;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+body .menu-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 35;
+  background-color: black;
+  overflow: hidden;
+}
+body .menu-overlay ul {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+}
+body .menu-overlay a {
+  position: relative;
+  display: inline-block;
+}
+body .menu-overlay ul li {
+  color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 160px;
+  line-height: 165px;
+  overflow: hidden;
+  padding-right: 40px;
+  transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+body .menu-overlay ul li:hover {
+  opacity: 0.5;
+}
+body .menu-overlay ul li:nth-child(1) a:after {
+  color: white;
+  font-family: "Suisse Mono";
+  content: "[1]";
+  position: absolute;
+  right: -40px;
+  top: 15px;
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+  pointer-events: none;
+}
+body .menu-overlay ul li:nth-child(2) a:after {
+  color: white;
+  font-family: "Suisse Mono";
+  content: "[2]";
+  position: absolute;
+  top: 15px;
+  right: -40px;
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+}
+body .menu-overlay ul li:nth-child(3) a:after {
+  color: white;
+  font-family: "Suisse Mono";
+  content: "[3]";
+  position: absolute;
+  right: -40px;
+  top: 15px;
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+}
+body .menu-overlay ul li:nth-child(4) a:after {
+  color: white;
+  font-family: "Suisse Mono";
+  content: "[4]";
+  position: absolute;
+  top: 15px;
+  right: -40px;
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+}
+body .cursor-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 200;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  color: white;
+}
+body .cursor {
+  margin-top: 30px;
+  margin-left: 30px;
+  z-index: 200;
+  font-size: 20px;
+}
+body .projects {
+  background-color: #fafafa;
+  height: 430vh;
+}
+body .projects .infos {
+  font-family: "Suisse Light";
+  z-index: 40;
+  text-align: left;
+  font-size: 84px;
+  line-height: 1.2;
+  position: absolute;
+  left: calc(100vw * 12 / 32 + 0px);
+  left: calc(100vw * 12 / 32 + 0px);
+  top: 19vh;
+  width: calc(100vw * 16 / 32 + 0px);
+  width: calc(100vw * 16 / 32 + 0px);
+}
+body .projects .infos span {
+  position: relative;
+  display: inline-block;
+}
+body .projects .infos_title {
+  overflow: hidden;
+  font-family: "Suisse Mono";
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+body .projects .infos .overflow {
+  overflow: hidden;
+}
+body .projects .infos .infos_1:before {
+  content: "";
+  position: absolute;
+  display: block;
+  margin-top: 3px;
+  height: 1.2px;
+  bottom: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background-color: currentColor;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+body .projects .infos .infos_1:hover {
+  cursor: pointer;
+}
+body .projects .infos .infos_1:after {
+  font-family: "Suisse Mono";
+  content: "[?]";
+  position: absolute;
+  top: 0;
+  right: -15px;
+  display: block;
+  font-size: 12px;
+}
+body .projects .infos .infos_2::after {
+  font-family: "Suisse Mono";
+  content: "[?]";
+  position: absolute;
+  top: 0;
+  right: -15px;
+  display: block;
+  font-size: 12px;
+}
+body .projects .project_1:hover, body .projects .project_2:hover, body .projects .project_3:hover, body .projects .project_4:hover, body .projects .project_5:hover {
+  cursor: pointer;
+}
+body .projects .project_1 {
+  background-color: black;
+  position: relative;
+  left: calc(100vw * 6 / 32 + 0px);
+  left: calc(100vw * 6 / 32 + 0px);
+  top: 50vh;
+  width: 660px;
+  height: 880px;
+}
+body .projects .project_1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+body .projects .project_2 {
+  position: relative;
+  left: calc(100vw * 14 / 32 + 0px);
+  left: calc(100vw * 14 / 32 + 0px);
+  top: 40vh;
+  width: 660px;
+  height: 880px;
+  background-color: #D8D8D8;
+}
+body .projects .project_3 {
+  position: absolute;
+  left: calc(100vw * 1 / 32 + 0px);
+  left: calc(100vw * 1 / 32 + 0px);
+  top: 220vh;
+  width: 660px;
+  height: 880px;
+  background-color: #D8D8D8;
+}
+body .projects .project_4 {
+  position: absolute;
+  left: calc(100vw * 16 / 32 + 0px);
+  left: calc(100vw * 16 / 32 + 0px);
+  top: 270vh;
+  width: 660px;
+  height: 880px;
+  background-color: #D8D8D8;
+}
+body .projects .project_5 {
+  position: absolute;
+  left: calc(100vw * 8 / 32 + 0px);
+  left: calc(100vw * 8 / 32 + 0px);
+  top: 335vh;
+  width: 660px;
+  height: 880px;
+  background-color: #D8D8D8;
+}
+
+.is-virtual-scroll {
+  overflow: hidden;
+}
+
+.is-native-scroll.y-scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.is-native-scroll.x-scroll {
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.vs-section {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  text-align: center;
+}
+
+.vs-scrollbar {
+  display: block;
+  position: absolute;
+  transition: transform 0.6s;
+}
+
+.vs-scrollbar.vs-vertical {
+  top: 0;
+  right: -5px;
+  bottom: 0;
+  width: 15px;
+  height: 100%;
+  transform: translate3d(5px, 0, 0);
+}
+
+.vs-scrollbar.vs-horizontal {
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 15px;
+  transform: translate3d(0, 5px, 0);
+}
+
+.is-dragging .vs-scrollbar.vs-horizontal,
+.is-dragging .vs-scrollbar.vs-vertical,
+.vs-scrollbar.vs-horizontal:hover,
+.vs-scrollbar.vs-vertical:hover {
+  transform: none;
+}
+
+.vs-scrollbar .vs-scrolldrag {
+  width: 100%;
+  height: auto;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.vs-scroll-view {
+  position: relative;
+  width: 1px;
+}
+
+/*# sourceMappingURL=/style.6d80b553.css.map */
