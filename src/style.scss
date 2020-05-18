@@ -4,6 +4,19 @@
 
 $ease-out: cubic-bezier(.165, .84, .44, 1);
 
+@mixin mobile {
+  @media (max-width: 1100px) { @content; }
+}
+
+@mixin xs {
+  @media (max-width: 600px) { @content; }
+}
+
+@mixin xl {
+  @media (min-width: 1920px) { @content; }
+}
+
+
 * {
   padding: 0;
   margin: 0;
@@ -18,10 +31,9 @@ body {
   line-height: 14px;
   font-family: 'Suisse', sans-serif;
   width: 100vw;
-  overflow: hidden;
 
   ::selection {
-    color: #8B8B8B;
+    background-color: #E2E2E2;
   }
 
   a,
@@ -41,6 +53,21 @@ body {
     // }
   }
 
+  h1 {
+    font-weight: 400;
+  }
+
+  .transition-wrapper {
+    width: 100vw;
+    height: 100vh;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    position: fixed;
+    top: 0;
+    background-color: black;
+    z-index: -1;
+  }
+
   header {
 
     font-size: 16px;
@@ -55,7 +82,12 @@ body {
       overflow: hidden;
       display: inline-block;
       mix-blend-mode: difference;
-      span {
+
+      @include mobile {
+        top: 30px;
+        left: 30px;
+      }
+      a {
         display: block;
       }
     }
@@ -66,6 +98,12 @@ body {
       mix-blend-mode: difference;
       top: 50px;
       @include likid(left, 7);
+
+      @include mobile {
+        top: 30px;
+        left: 50vw;
+      }
+
       position: fixed;
       span {
         display: block;
@@ -87,7 +125,8 @@ body {
     z-index: 35;
     position: fixed;
     width: 100vw;
-    height: 0;
+    height: 100vh;
+    visibility: hidden;
     left: 0;
     top: 0;
     overflow: hidden;
@@ -108,6 +147,11 @@ body {
       position: absolute;
       bottom: 50px;
       left: 50px;
+      
+      @include mobile {
+        bottom: 30px;
+        left: 30px;
+      }
     }
 
     a {
@@ -121,10 +165,14 @@ body {
       padding: 0;
       margin: 0;
       font-size: 160px;
-      line-height: 165px;
+      line-height: 1.1;
       overflow: hidden;
       padding-right: 40px;
       transition: opacity .3s $ease-out;
+
+      @include mobile {
+        font-size: 60px;
+      }
 
       &:hover {
         opacity: 0.5;
@@ -189,6 +237,112 @@ body {
     }
   }
 
+  .projects-list {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f1f1f1;
+    z-index: 10;
+
+    ul {
+      position: absolute;
+      bottom: 30px;
+      left: 50px;
+    }
+
+    a {
+      position: relative;
+      display: inline-block;
+    }
+
+    ul li {
+      color: black;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 160px;
+      line-height: 1.1;
+      overflow: hidden;
+      padding-right: 40px;
+      transition: opacity .3s $ease-out;
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &:nth-child(1) {
+        & a:after {
+          color: black;
+          font-family: 'Suisse Mono';
+          content: '[1]';
+          position: absolute;
+          right: -40px;
+          top: 15px;
+          display: block;
+          font-size: 12px;
+          line-height: 12px;
+          pointer-events: none;
+        }
+      }
+
+      &:nth-child(2) {
+        & a:after {
+          color: black;
+          font-family: 'Suisse Mono';
+          content: '[2]';
+          position: absolute;
+          top: 15px;
+          right: -40px;
+          display: block;
+          font-size: 12px;
+          line-height: 12px;
+        }
+      }
+
+      &:nth-child(3) {
+        & a:after {
+          color: black;
+          font-family: 'Suisse Mono';
+          content: '[3]';
+          position: absolute;
+          right: -40px;
+          top: 15px;
+          display: block;
+          font-size: 12px;
+          line-height: 12px;
+        }
+      }
+
+      &:nth-child(4) {
+        & a:after {
+          color: black;
+          font-family: 'Suisse Mono';
+          content: '[4]';
+          position: absolute;
+          top: 15px;
+          right: -40px;
+          display: block;
+          font-size: 12px;
+          line-height: 12px;
+        }
+      }
+
+      &:nth-child(5) {
+        & a:after {
+          color: black;
+          font-family: 'Suisse Mono';
+          content: '[5]';
+          position: absolute;
+          top: 15px;
+          right: -40px;
+          display: block;
+          font-size: 12px;
+          line-height: 12px;
+        }
+      }
+    }
+  }
+
   .cursor-wrapper {
     width: 100vw;
     height: 100vh;
@@ -200,10 +354,22 @@ body {
   }
 
   .cursor {
-    margin-top: 30px;
+    margin-top: 40px;
     margin-left: 30px;
     z-index: 200;
-    font-size: 20px;
+
+
+    &-title {
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+    &-infos {
+      margin-top: 5px;
+      font-size: 12px;
+      line-height: 12px;
+      font-family: 'Suisse Mono';
+    }
   }
 
   .projects {
@@ -211,16 +377,27 @@ body {
     background-color: #fafafa;
     height: 430vh;
 
+    @include mobile {
+      height: 540vh;
+    }
+
     .infos {
-      font-family: 'Suisse Light';
+      font-family: 'Suisse';
       z-index: 40;
       text-align: left;
-      font-size: 84px;
+      font-size: 4vw;
       line-height: 1.2;
       position: absolute;
       @include likid(left, 12);
       top: 19vh;
-      @include likid(width, 16);
+      @include likid(width, 15.2);
+
+      @include mobile {
+        font-size: 36px;
+        top: 19.5vh;
+        left: 30px;
+        width: calc(100% - 60px);
+      }
 
       span {
         position: relative;
@@ -265,6 +442,10 @@ body {
           right: -15px;
           display: block;
           font-size: 12px;
+
+          @include mobile {
+            display: none;
+          }
         }
       }
 
@@ -276,6 +457,9 @@ body {
         right: -15px;
         display: block;
         font-size: 12px;
+        @include mobile {
+          display: none;
+        }
       }
     }
 
@@ -288,6 +472,7 @@ body {
     .project_1 {
       background-color: black;
       position: relative;
+      z-index: 20;
       @include likid(left, 6);
       top: 50vh;
       width: 660px;
@@ -298,15 +483,37 @@ body {
         height: 100%;
         object-fit: cover;
       }
+
+      @include mobile {
+        width: 330px;
+        height: 540px;
+        top: 80vh;
+        left: -5vw;
+      }
     }
 
     .project_2 {
       position: relative;
       @include likid(left, 14);
+      z-index: 30;
       top: 40vh;
       width: 660px;
       height: 880px;
       background-color: #D8D8D8;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @include mobile {
+        z-index: 20;
+        width: 330px;
+        height: 540px;
+        top: 80vh;
+        left: 20vw;
+      }
     }
 
     .project_3 {
@@ -316,6 +523,19 @@ body {
       width: 660px;
       height: 880px;
       background-color: #D8D8D8;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @include mobile {
+        top: 270vh;
+        left: 0;
+        width: 330px;
+        height: 540px;
+      }
     }
 
     .project_4 {
@@ -325,6 +545,19 @@ body {
       width: 660px;
       height: 880px;
       background-color: #D8D8D8;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @include mobile {
+        top: 360vh;
+        width: 330px;
+        left: 20vw;
+        height: 540px;
+      }
     }
 
     .project_5 {
@@ -334,6 +567,97 @@ body {
       width: 660px;
       height: 880px;
       background-color: #D8D8D8;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @include mobile {
+        top: 440vh;
+        width: 330px;
+        left: 0;
+        height: 540px;
+      }
+    }
+  }
+
+  .project {
+    width: 100vw;
+    height: 100%;
+    background-color: black;
+
+    .transition-wrapper {
+      width: 100vw;
+      height: 100vh;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      position: fixed;
+      z-index: 0t;
+      top: 0;
+      background-color: black;
+    }
+
+    &_infos {
+      position: absolute;
+      z-index: 20;
+      text-align: left;
+      font-family: 'Suisse Mono';
+      font-size: 12px;
+      color: white;
+      line-height: 16px;
+      left: 58.5vw;
+      top: 72.5vh;
+
+      .overflow {
+        overflow: hidden;
+      }
+
+      span {
+        display: block;
+      }
+    }
+
+    &_header {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &_title {
+        color: white;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 40;
+        font-size: 13vw;
+        line-height: 13vw;
+        mix-blend-mode: difference;
+        font-weight: 300;
+        overflow: hidden;
+
+        @include xl {
+          font-size: 260px;
+          line-height: 260px;
+        }
+      }
+
+      &_img {
+        background-color: black;
+        position: relative;
+        width: 465px;
+        height: 620px;
+        z-index: 11;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
     }
   }
 }

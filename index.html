@@ -8,11 +8,11 @@
   <title>Paul-Antoine Soulhiard</title>
   <link rel="stylesheet" href="./src/style.scss">
 </head>
-<body data-scroll-container class="js-scroll">
+<body class="home" data-barba="wrapper">
 
   <header>
     <div class="logo">
-      <span>Paul Soulhiard</span>
+      <a href="index.html">Paul Soulhiard</a>
     </div>
     <div class="links">
       <a class="menu-open"><span>Menu</span></a>
@@ -23,7 +23,7 @@
   <div class="menu-wrapper">
     <div class="menu-overlay">
       <ul>
-        <li><a href="#">Projects</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Now</a></li>
         <li><a href="#">Contact</a></li>
@@ -32,35 +32,51 @@
   </div>
 
   <div class="cursor-wrapper">
-    <div class="cursor"></div>
-  </div>
-
-  <div class="vs-section projects">
-    <div class="vs-div infos" data-speed="0.15">
-        <div class="infos_title"><span>Infos</span></div>
-        <div class="overflow"><span class="infos_1">French student,</span></div>
-        <div class="overflow"><span>focused on interaction,</span></div>
-        <div class="overflow"><span> type and 3D. Currently</span></div>
-        <div class="overflow"><span class="infos_2"> working at Extra l’agence,</span></div>
-        <div class="overflow"><span>(Lyon, FR)</span></div>
-    </div>
-    <div class="vs-div project_1" data-speed="0.01">
-      <img src="./src/assets/images/mission3.png">
-    </div>
-    <div class="vs-div project_2" data-speed="0.12">
-      <img src="./src/assets/images/irishman.jpg">
-    </div>
-    <div class="vs-div project_3" data-speed="-0.18">
-      <img src="./src/assets/images/regular.jpg">
-    </div>
-    <div class="vs-div project_4" data-speed="-0.075">
-      <img src="./src/assets/images/ame.jpg">
-    </div>
-    <div class="vs-div project_5" data-speed="0.1">
-      <img src="./src/assets/images/dataviz.jpg">
+    <div class="cursor">
+      <div class="cursor-title"></div>
+      <div class="cursor-infos"></div>
     </div>
   </div>
 
+  <main data-barba="container" data-barba-namespace="home">
+
+    <div class="vs-section projects">
+      <div class="transition-wrapper"></div>
+      <div class="vs-div infos" data-speed="0.15">
+          <div class="infos_title"><span>Infos</span></div>
+          <div class="overflow"><span class="infos_1">French student,</span></div>
+          <div class="overflow"><span>focused on interaction,</span></div>
+          <div class="overflow"><span> type and 3D. Currently</span></div>
+          <div class="overflow"><span class="infos_2"> working at Extra l’agence,</span></div>
+          <div class="overflow"><span>(Lyon, FR)</span></div>
+      </div>
+      <div class="vs-div project_1" data-speed="0.01">
+        <a >
+          <img src="./src/assets/images/mission3.png">
+        </a>  
+      </div>
+      <div class="vs-div project_2" data-speed="0.12">
+        <a>
+          <img src="./src/assets/images/irishman.jpg">
+        </a>
+      </div>
+      <div class="vs-div project_3" data-speed="-0.18">
+        <a href="regular.html">
+          <img src="./src/assets/images/regular.jpg">
+        </a>
+      </div>
+      <div class="vs-div project_4" data-speed="-0.075">
+        <a href="ame.html">
+          <img src="./src/assets/images/ame.jpg">
+        </a>
+      </div>
+      <div class="vs-div project_5" data-speed="0.1">
+        <a href="dataviz.html">
+          <img src="./src/assets/images/dataviz.jpg">
+        </a>
+      </div>
+    </div>
+  </main>
   <script src="./src/main.js"></script>
 </body>
 </html>
